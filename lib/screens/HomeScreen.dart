@@ -1,3 +1,4 @@
+import 'package:firstapp/Pages/ChatPgae.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -23,10 +24,39 @@ class _HomeScreenState extends State<HomeScreen>
         title: Text("Whatsapp "),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              print(value);
+            },
+            itemBuilder: (BuildContext contesxt) {
+              return [
+                PopupMenuItem(
+                  child: Text("New group"),
+                  value: "New group",
+                ),
+                PopupMenuItem(
+                  child: Text("New broadcast"),
+                  value: "New broadcast",
+                ),
+                PopupMenuItem(
+                  child: Text("Whatsapp Web"),
+                  value: "Whatsapp Web",
+                ),
+                PopupMenuItem(
+                  child: Text("Starred messages"),
+                  value: "Starred messages",
+                ),
+                PopupMenuItem(
+                  child: Text("Settings"),
+                  value: "Settings",
+                ),
+              ];
+            },
+          )
         ],
         bottom: TabBar(
           controller: _controller,
+          indicatorColor: Colors.white,
           tabs: [
             Tab(
               icon: Icon(Icons.camera_alt),
@@ -35,18 +65,13 @@ class _HomeScreenState extends State<HomeScreen>
               text: "CHATS",
             ),
             Tab(text: "STATUS"),
-            Tab(text: "cALLSr")
+            Tab(text: "cALLS")
           ],
         ),
       ),
       body: TabBarView(
         controller: _controller,
-        children: [
-          Text("camera"),
-          Text("Chats"),
-          Text("Status"),
-          Text("Calls")
-        ],
+        children: [Text("camera"), ChatPage(), Text("Status"), Text("Calls")],
       ),
     );
   }

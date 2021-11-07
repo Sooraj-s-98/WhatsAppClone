@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: HomeScreen(),
       theme: ThemeData(
-        primaryColor: Color(0xFF128C7E),
+        primaryColor: Colors.green[900],
       ),
     );
   }
