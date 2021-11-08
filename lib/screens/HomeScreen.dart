@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Whatsapp "),
+        title: Text("WhatsApp"),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
           PopupMenuButton<String>(
@@ -65,7 +65,7 @@ class _HomeScreenState extends State<HomeScreen>
               text: "CHATS",
             ),
             Tab(text: "STATUS"),
-            Tab(text: "cALLS")
+            Tab(text: "CALLS")
           ],
         ),
       ),
