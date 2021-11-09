@@ -17,14 +17,14 @@ class _ChatPageState extends State<ChatPage> {
         child: Icon(Icons.chat),
       ),
       body: ListView(
-        children: ListTile.divideTiles(context: context, tiles: [
+        children: [
           CustomCard(),
           CustomCard(),
           CustomCard(),
           CustomCard(),
           CustomCard(),
           CustomCard(),
-        ]).toList(),
+        ],
       ),
     );
   }
