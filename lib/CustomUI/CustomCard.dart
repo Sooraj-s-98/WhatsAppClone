@@ -1,5 +1,5 @@
-import 'package:firstapp/Models/ChatModel.dart';
-import 'package:firstapp/screens/IndividualPage.dart';
+import 'package:whatsAppClone/Models/ChatModel.dart';
+import 'package:whatsAppClone/screens/IndividualPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

@@ -1,4 +1,4 @@
-import 'package:firstapp/Pages/ChatPgae.dart';
+import 'package:whatsAppClone/Pages/ChatPgae.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("WhatsApp"),
+        title: Text("whatsApp"),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.search)),
           PopupMenuButton<String>(

@@ -1,4 +1,4 @@
-import 'package:firstapp/Models/ChatModel.dart';
+import 'package:whatsAppClone/Models/ChatModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:emoji_picker/emoji_picker.dart';
