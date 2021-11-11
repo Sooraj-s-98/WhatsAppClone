@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firstapp/CustomUI/ContactCard.dart';
 import 'package:firstapp/CustomUI/ButtonCard.dart';
 import 'package:firstapp/Models/ChatModel.dart';
+import 'package:firstapp/screens/CreateGroup.dart';
 
 class SelectContact extends StatefulWidget {
   const SelectContact({Key? key}) : super(key: key);
@@ -33,14 +34,14 @@ class _SelectContactState extends State<SelectContact> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Select Contact",
+                "New Group",
                 style: TextStyle(
                   fontSize: 19,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "256 contacts",
+                "Add participants",
                 style: TextStyle(
                   fontSize: 13,
                 ),
@@ -54,32 +55,6 @@ class _SelectContactState extends State<SelectContact> {
                   size: 26,
                 ),
                 onPressed: () {}),
-            PopupMenuButton<String>(
-              padding: EdgeInsets.all(0),
-              onSelected: (value) {
-                print(value);
-              },
-              itemBuilder: (BuildContext contesxt) {
-                return [
-                  PopupMenuItem(
-                    child: Text("Invite a friend"),
-                    value: "Invite a friend",
-                  ),
-                  PopupMenuItem(
-                    child: Text("Contacts"),
-                    value: "Contacts",
-                  ),
-                  PopupMenuItem(
-                    child: Text("Refresh"),
-                    value: "Refresh",
-                  ),
-                  PopupMenuItem(
-                    child: Text("Help"),
-                    value: "Help",
-                  ),
-                ];
-              },
-            ),
           ],
         ),
         body: ListView.builder(
@@ -87,7 +62,10 @@ class _SelectContactState extends State<SelectContact> {
             itemBuilder: (context, index) {
               if (index == 0) {
                 return InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (builder) => CreateGroup()));
+                  },
                   child: ButtonCard(
                     icon: Icons.group,
                     name: "New group",
