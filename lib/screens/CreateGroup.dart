@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:firstapp/CustomUI/ContactCard.dart';
-import 'package:firstapp/CustomUI/ButtonCard.dart';
-import 'package:firstapp/CustomUI/AvtarCard.dart';
-import 'package:firstapp/Models/ChatModel.dart';
+import 'package:whatsAppClone/CustomUI/ContactCard.dart';
+import 'package:whatsAppClone/CustomUI/ButtonCard.dart';
+import 'package:whatsAppClone/CustomUI/AvtarCard.dart';
+import 'package:whatsAppClone/Models/ChatModel.dart';
 
 class CreateGroup extends StatefulWidget {
   CreateGroup({Key? key}) : super(key: key);
