@@ -34,14 +34,14 @@ class _SelectContactState extends State<SelectContact> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "New Group",
+                "Select Contact",
                 style: TextStyle(
                   fontSize: 19,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               Text(
-                "Add participants",
+                "256 contacts",
                 style: TextStyle(
                   fontSize: 13,
                 ),
@@ -55,6 +55,32 @@ class _SelectContactState extends State<SelectContact> {
                   size: 26,
                 ),
                 onPressed: () {}),
+            PopupMenuButton<String>(
+              padding: EdgeInsets.all(0),
+              onSelected: (value) {
+                print(value);
+              },
+              itemBuilder: (BuildContext contesxt) {
+                return [
+                  PopupMenuItem(
+                    child: Text("Invite a friend"),
+                    value: "Invite a friend",
+                  ),
+                  PopupMenuItem(
+                    child: Text("Contacts"),
+                    value: "Contacts",
+                  ),
+                  PopupMenuItem(
+                    child: Text("Refresh"),
+                    value: "Refresh",
+                  ),
+                  PopupMenuItem(
+                    child: Text("Help"),
+                    value: "Help",
+                  ),
+                ];
+              },
+            ),
           ],
         ),
         body: ListView.builder(
