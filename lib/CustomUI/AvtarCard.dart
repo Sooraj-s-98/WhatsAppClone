@@ -1,4 +1,4 @@
-import 'package:whatsAppClone/Models/ChatModel.dart';
+import 'package:whatsappclone/Models/ChatModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

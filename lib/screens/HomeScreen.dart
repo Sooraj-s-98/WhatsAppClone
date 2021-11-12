@@ -1,4 +1,4 @@
-import 'package:whatsAppClone/Pages/ChatPgae.dart';
+import 'package:whatsappclone/Pages/ChatPgae.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {

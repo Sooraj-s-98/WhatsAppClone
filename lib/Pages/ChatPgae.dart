@@ -1,6 +1,6 @@
-import 'package:whatsAppClone/CustomUI/CustomCard.dart';
-import 'package:whatsAppClone/Models/ChatModel.dart';
-import 'package:whatsAppClone/screens/SelectContact.dart';
+import 'package:whatsappclone/CustomUI/CustomCard.dart';
+import 'package:whatsappclone/Models/ChatModel.dart';
+import 'package:whatsappclone/screens/SelectContact.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatefulWidget {
