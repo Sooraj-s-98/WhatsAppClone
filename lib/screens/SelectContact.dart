@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:whatsAppClone/CustomUI/ContactCard.dart';
-import 'package:whatsAppClone/CustomUI/ButtonCard.dart';
-import 'package:whatsAppClone/Models/ChatModel.dart';
-import 'package:whatsAppClone/screens/CreateGroup.dart';
+import 'package:whatsappclone/CustomUI/ContactCard.dart';
+import 'package:whatsappclone/CustomUI/ButtonCard.dart';
+import 'package:whatsappclone/Models/ChatModel.dart';
+import 'package:whatsappclone/screens/CreateGroup.dart';
 
 class SelectContact extends StatefulWidget {
   const SelectContact({Key? key}) : super(key: key);
