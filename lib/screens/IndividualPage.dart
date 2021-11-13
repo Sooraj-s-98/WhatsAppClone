@@ -12,8 +12,8 @@ class IndividualPage extends StatefulWidget {
 
 class _IndividualPageState extends State<IndividualPage> {
   bool show = false;
-  FocusNode focusNode = FocusNode();
-  TextEditingController _controller = TextEditingController();
+  late FocusNode focusNode = FocusNode();
+  late TextEditingController _controller = TextEditingController();
   @override
   void initState() {
     // TODO: implement initState

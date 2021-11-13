@@ -1,8 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './screens/HomeScreen.dart';
+import 'package:camera/camera.dart';
+import 'package:whatsappclone/Screens/CameraScreen.dart';
 
-main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  cameras = await availableCameras();
   runApp(
     MyApp(),
   );
