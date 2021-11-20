@@ -1,9 +1,13 @@
+import 'package:whatsappclone/Models/ChatModel.dart';
+import 'package:whatsappclone/Pages/CameraPage.dart';
 import 'package:whatsappclone/Pages/ChatPgae.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsappclone/Pages/CameraPage.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key, required this.chatmodels, required this.sourchat})
+      : super(key: key);
+  final List<ChatModel> chatmodels;
+  final ChatModel sourchat;
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -11,7 +15,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
-  TabController? _controller;
+  late TabController _controller;
   @override
   void initState() {
     super.initState();
@@ -22,9 +26,9 @@ class _HomeScreenState extends State<HomeScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("whatsApp"),
+        title: Text("Whatsapp Clone"),
         actions: [
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(icon: Icon(Icons.search), onPressed: () {}),
           PopupMenuButton<String>(
             onSelected: (value) {
               print(value);
@@ -65,14 +69,26 @@ class _HomeScreenState extends State<HomeScreen>
             Tab(
               text: "CHATS",
             ),
-            Tab(text: "STATUS"),
-            Tab(text: "CALLS")
+            Tab(
+              text: "STATUS",
+            ),
+            Tab(
+              text: "CALLS",
+            )
           ],
         ),
       ),
       body: TabBarView(
         controller: _controller,
-        children: [CameraPage(), ChatPage(), Text("Status"), Text("Calls")],
+        children: [
+          CameraPage(),
+          ChatPage(
+            chatmodels: widget.chatmodels,
+            sourchat: widget.sourchat,
+          ),
+          Text("STATUS"),
+          Text("Calls"),
+        ],
       ),
     );
   }

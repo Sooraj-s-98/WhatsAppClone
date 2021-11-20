@@ -4,8 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomCard extends StatelessWidget {
-  const CustomCard({Key? key, required this.chatModel}) : super(key: key);
+  const CustomCard({Key? key, required this.chatModel, required this.sourchat})
+      : super(key: key);
   final ChatModel chatModel;
+  final ChatModel sourchat;
 
   @override
   Widget build(BuildContext context) {
@@ -14,8 +16,9 @@ class CustomCard extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => IndividualPage(
+                builder: (contex) => IndividualPage(
                       chatModel: chatModel,
+                      sourchat: sourchat,
                     )));
       },
       child: Column(
@@ -26,15 +29,17 @@ class CustomCard extends StatelessWidget {
               child: SvgPicture.asset(
                 chatModel.isGroup ? "assets/groups.svg" : "assets/person.svg",
                 color: Colors.white,
-                height: 37,
-                width: 37,
+                height: 36,
+                width: 36,
               ),
               backgroundColor: Colors.blueGrey,
             ),
-            trailing: Text(chatModel.time),
             title: Text(
               chatModel.name,
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             subtitle: Row(
               children: [
@@ -44,10 +49,13 @@ class CustomCard extends StatelessWidget {
                 ),
                 Text(
                   chatModel.currentMessage,
-                  style: TextStyle(fontSize: 13),
+                  style: TextStyle(
+                    fontSize: 13,
+                  ),
                 ),
               ],
             ),
+            trailing: Text(chatModel.time),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 20, left: 80),

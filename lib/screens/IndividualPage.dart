@@ -8,14 +8,18 @@ import 'package:socket_io_client/socket_io_client.dart' as IO;
 import 'package:whatsappclone/Models/MessageModel.dart';
 
 class IndividualPage extends StatefulWidget {
-  const IndividualPage({Key? key, required this.chatModel}) : super(key: key);
+  const IndividualPage(
+      {Key? key, required this.chatModel, required this.sourchat})
+      : super(key: key);
   final ChatModel chatModel;
+  final ChatModel sourchat;
   @override
   _IndividualPageState createState() => _IndividualPageState();
 }
 
 class _IndividualPageState extends State<IndividualPage> {
   bool show = false;
+  bool sendButton = false;
   late FocusNode focusNode = FocusNode();
   late TextEditingController _controller = TextEditingController();
   late IO.Socket socket;
@@ -182,6 +186,17 @@ class _IndividualPageState extends State<IndividualPage> {
                                 keyboardType: TextInputType.multiline,
                                 maxLines: 5,
                                 minLines: 1,
+                                onChanged: (value) {
+                                  if (value.length > 0) {
+                                    setState(() {
+                                      sendButton = true;
+                                    });
+                                  } else {
+                                    setState(() {
+                                      sendButton = false;
+                                    });
+                                  }
+                                },
                                 decoration: InputDecoration(
                                   border: InputBorder.none,
                                   hintText: "Type a message",
@@ -226,7 +241,7 @@ class _IndividualPageState extends State<IndividualPage> {
                               radius: 25,
                               child: IconButton(
                                 icon: Icon(
-                                  Icons.mic,
+                                  sendButton ? Icons.send : Icons.mic,
                                   color: Colors.white,
                                 ),
                                 onPressed: () {},
