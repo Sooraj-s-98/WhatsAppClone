@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:emoji_picker/emoji_picker.dart';
 import 'package:whatsappclone/CustomUI/ReplyCard.dart';
 import 'package:whatsappclone/CustomUI/OwnMessageCard.dart';
+import 'package:socket_io_client/socket_io_client.dart' as IO;
+import 'package:whatsappclone/Models/MessageModel.dart';
 
 class IndividualPage extends StatefulWidget {
   const IndividualPage({Key? key, required this.chatModel}) : super(key: key);
@@ -16,6 +18,7 @@ class _IndividualPageState extends State<IndividualPage> {
   bool show = false;
   late FocusNode focusNode = FocusNode();
   late TextEditingController _controller = TextEditingController();
+  late IO.Socket socket;
   @override
   void initState() {
     // TODO: implement initState
@@ -27,6 +30,22 @@ class _IndividualPageState extends State<IndividualPage> {
         });
       }
     });
+    connect();
+  }
+
+  void connect() {
+    // MessageModel messageModel = MessageModel(sourceId: widget.sourceChat.id.toString(),targetId: );
+    socket = IO.io("http://172.31.16.1:4000/", <String, dynamic>{
+      "transports": ["websocket"],
+      "autoConnect": false,
+    });
+    socket.connect();
+    socket.onConnect((data) {
+      print("Connected");
+    });
+
+    print(socket.connected);
+    socket.emit("/test", "hello");
   }
 
   @override
